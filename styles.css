@@ -1,0 +1,40 @@
+* {
+    border: 1px solid black;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.display {
+    display: flex;
+    height: 100px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 3rem;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    display: flex;
+}
+
+
+
+button {
+    width: 75px;
+    height: 75px;
+}
+
