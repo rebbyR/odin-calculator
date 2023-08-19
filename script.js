@@ -1,3 +1,11 @@
+/*
+
+ideas to tidy up the code: place buttons in arrays/objects and use a combination of functions and loops
+to call each button when changing display and/or doing math
+
+
+*/
+
 //variables for operation functions
 let firstNumber = undefined;
 let secondNumber = undefined;
@@ -69,3 +77,68 @@ function divide(firstNumber, secondNumber) {
 
 //define button-to-display functions
 
+zeroButton.addEventListener('click', () => {
+    displayText = displayText + 0;
+    display.textContent = displayText;
+    console.log(displayText);
+})
+
+oneButton.addEventListener('click', () => {
+    displayText = displayText + 1;
+    display.textContent = displayText;
+    console.log(displayText);
+})
+
+twoButton.addEventListener('click', () => {
+    displayText = displayText + 2;
+    display.textContent = displayText;
+    console.log(displayText);
+})
+
+threeButton.addEventListener('click', () => {
+    displayText = displayText + 3;
+    display.textContent = displayText;
+    console.log(displayText);
+})
+
+fourButton.addEventListener('click', () => {
+    displayText = displayText + 4;
+    display.textContent = displayText;
+    console.log(displayText);
+})
+
+fiveButton.addEventListener('click', () => {
+    displayText = displayText + 5;
+    display.textContent = displayText;
+    console.log(displayText);
+})
+
+sixButton.addEventListener('click', () => {
+    displayText = displayText + 6;
+    display.textContent = displayText;
+    console.log(displayText);
+})
+
+sevenButton.addEventListener('click', () => {
+    displayText = displayText + 7;
+    display.textContent = displayText;
+    console.log(displayText);
+})
+
+eightButton.addEventListener('click', () => {
+    displayText = displayText + 8;
+    display.textContent = displayText;
+    console.log(displayText);
+})
+
+nineButton.addEventListener('click', () => {
+    displayText = displayText + 9;
+    display.textContent = displayText;
+    console.log(displayText);
+})
+
+clearButton.addEventListener('click', () => {
+    displayText = '';
+    display.textContent = displayText;
+    console.log(displayText);
+})
