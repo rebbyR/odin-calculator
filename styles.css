@@ -1,6 +1,6 @@
 * {
     font-family: monospace;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 body {
@@ -69,4 +69,8 @@ button {
 
 .bottom-text {
     font-size: 16px;
+}
+
+li {
+    margin: 10px;
 }

@@ -87,60 +87,104 @@ function equals() {
     displayText = '';
     display.textContent = '';
     operate(lastOperationPressed);
+    if (String(result).length > 7) {
+        display.textContent = "too long!"
+    } else {
     display.textContent = result;
     userNumberInputs = [result];
+    };
 };
 
 //number button event listeners
 
 zeroButton.addEventListener('click', () => {
+    if (displayText.length > 7) {
+        display.textContent = "too long!"
+    } else {
     displayText = displayText + 0;
     display.textContent = displayText;
+    };
 });
 
 oneButton.addEventListener('click', () => {
+    if (displayText.length > 7) {
+        display.textContent = "too long!"
+    } else {
     displayText = displayText + 1;
     display.textContent = displayText;
+    };
 });
 
 twoButton.addEventListener('click', () => {
+    if (displayText.length > 7) {
+        display.textContent = "too long!"
+    } else {
     displayText = displayText + 2;
     display.textContent = displayText;
+    };
 });
 
 threeButton.addEventListener('click', () => {
+    if (displayText.length > 7) {
+        display.textContent = "too long!"
+    } else {
     displayText = displayText + 3;
     display.textContent = displayText;
+    };
 });
 
 fourButton.addEventListener('click', () => {
+    if (displayText.length > 7) {
+        display.textContent = "too long!"
+    } else {
     displayText = displayText + 4;
     display.textContent = displayText;
+    };
 });
 
 fiveButton.addEventListener('click', () => {
+    if (displayText.length > 7) {
+        display.textContent = "too long!"
+    } else {
     displayText = displayText + 5;
     display.textContent = displayText;
+    };
 });
 
 sixButton.addEventListener('click', () => {
+    if (displayText.length > 7) {
+        display.textContent = "too long!"
+    } else {
     displayText = displayText + 6;
     display.textContent = displayText;
+    };
 });
 
 sevenButton.addEventListener('click', () => {
+    if (displayText.length > 7) {
+        display.textContent = "too long!"
+    } else {
     displayText = displayText + 7;
     display.textContent = displayText;
+    };
 });
 
 eightButton.addEventListener('click', () => {
+    if (displayText.length > 7) {
+        display.textContent = "too long!"
+    } else {
     displayText = displayText + 8;
     display.textContent = displayText;
+    };
 });
 
 nineButton.addEventListener('click', () => {
+    if (displayText.length > 7) {
+        display.textContent = "too long!"
+    } else {
     displayText = displayText + 9;
     display.textContent = displayText;
+    };
 });
 
 //operation button event listeners
