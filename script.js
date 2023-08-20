@@ -3,6 +3,8 @@
 ideas to tidy up the code: place buttons in arrays/objects and use a combination of functions and loops
 to call each button when changing display and/or doing math
 
+to be fixed: set maximum character limit (should be 13) so that calculator display does not expand
+
 
 */
 
@@ -10,6 +12,8 @@ to call each button when changing display and/or doing math
 let firstNumber = undefined;
 let secondNumber = undefined;
 let operator = undefined;
+let result = 0;
+let userNumberInputs = [];
 
 //declare number buttons
 const zeroButton = document.getElementById('zero');
@@ -55,22 +59,31 @@ function operate(firstNumber, secondNumber, operator) {
     }
 };
 
-function add(firstNumber, secondNumber) {
-    return result = firstNumber + secondNumber;
+function add(userNumberInputs) {
+    result = Number(userNumberInputs[0]);    
+    for (i = 1; i < userNumberInputs.length; i++) {
+        result += Number(userNumberInputs[i]);
+    } console.log(result);
+    return result;
 
 };
 
-function subtract(firstNumber, secondNumber) {
-    return result = firstNumber - secondNumber;
+function subtract(userNumberInputs) {
+    result = userNumberInputs[0];
+    console.log(result);
+    for (i = 1; i < userNumberInputs.length; i++) {
+        result -= Number(userNumberInputs[i]);
+    } console.log(result);
+    return result;
 
 };
 
-function multiply(firstNumber, secondNumber) {
+function multiply(userNumberInputs) {
     return result = firstNumber * secondNumber;
 
 };
 
-function divide(firstNumber, secondNumber) {
+function divide(userNumberInputs) {
     return result = firstNumber / secondNumber;
 
 };
@@ -81,64 +94,89 @@ zeroButton.addEventListener('click', () => {
     displayText = displayText + 0;
     display.textContent = displayText;
     console.log(displayText);
-})
+});
 
 oneButton.addEventListener('click', () => {
     displayText = displayText + 1;
     display.textContent = displayText;
     console.log(displayText);
-})
+});
 
 twoButton.addEventListener('click', () => {
     displayText = displayText + 2;
     display.textContent = displayText;
     console.log(displayText);
-})
+});
 
 threeButton.addEventListener('click', () => {
     displayText = displayText + 3;
     display.textContent = displayText;
     console.log(displayText);
-})
+});
 
 fourButton.addEventListener('click', () => {
     displayText = displayText + 4;
     display.textContent = displayText;
     console.log(displayText);
-})
+});
 
 fiveButton.addEventListener('click', () => {
     displayText = displayText + 5;
     display.textContent = displayText;
     console.log(displayText);
-})
+});
 
 sixButton.addEventListener('click', () => {
     displayText = displayText + 6;
     display.textContent = displayText;
     console.log(displayText);
-})
+});
 
 sevenButton.addEventListener('click', () => {
     displayText = displayText + 7;
     display.textContent = displayText;
     console.log(displayText);
-})
+});
 
 eightButton.addEventListener('click', () => {
     displayText = displayText + 8;
     display.textContent = displayText;
     console.log(displayText);
-})
+});
 
 nineButton.addEventListener('click', () => {
     displayText = displayText + 9;
     display.textContent = displayText;
     console.log(displayText);
-})
+});
 
 clearButton.addEventListener('click', () => {
+    userNumberInputs = [];
     displayText = '';
     display.textContent = displayText;
     console.log(displayText);
+});
+
+addButton.addEventListener('click', () => {
+    userNumberInputs.push(displayText);
+    displayText = '';
+    display.textContent = '';
+});
+
+subtractButton.addEventListener('click', () => {
+    userNumberInputs.push(displayText);
+    displayText = '';
+    display.textContent = '';
+});
+
+//other operation buttons here.........
+
+//set up to only work for adding / test case
+equalButton.addEventListener('click', () => {
+    userNumberInputs.push(displayText);
+    displayText = '';
+    display.textContent = '';
+    add(userNumberInputs);  
+    display.textContent = result;
+    userNumberInputs = [result];
 })
