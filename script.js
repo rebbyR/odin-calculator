@@ -46,13 +46,13 @@ let displayText = display.textContent;
 //define operation functions
 
 function operate(lastOperationPressed) {
-    if (lastOperationPressed === addButton) {
+    if (lastOperationPressed === "addition") {
         add(userNumberInputs);
-    } else if (lastOperationPressed === subtractButton) {
+    } else if (lastOperationPressed === "subtraction") {
         subtract(userNumberInputs);
-    } else if (lastOperationPressed === multiplyButton) {
+    } else if (lastOperationPressed === "multiplication") {
         multiply(userNumberInputs);
-    } else if (lastOperationPressed === divideButton) {
+    } else if (lastOperationPressed === "division") {
         divide(userNumberInputs);
     };
 };
@@ -73,7 +73,7 @@ function multiply(userNumberInputs) {
 };
 
 function divide(userNumberInputs) {
-    result = userNumberInputs[0];
+    result = Number(userNumberInputs[0]);
     if (userNumberInputs[1] == 0) {
         return result = ":(";
     } else {
@@ -88,7 +88,6 @@ function equals() {
     operate(lastOperationPressed);
     display.textContent = result;
     userNumberInputs = [result];
-    console.log(userNumberInputs);
 };
 
 //number button event listeners
@@ -153,47 +152,55 @@ clearButton.addEventListener('click', () => {
 });
 
 addButton.addEventListener('click', () => {
-    userNumberInputs.push(displayText);
+    if (displayText !== '') {
+        userNumberInputs.push(displayText);        
+    };
     if (userNumberInputs.length >= 2) {
         equals();
     } else {
         displayText = '';
         display.textContent = '';
-        lastOperationPressed = addButton;
     };
+    lastOperationPressed = "addition";
 });
 
 subtractButton.addEventListener('click', () => {
-    userNumberInputs.push(displayText);
+    if (displayText !== '') {
+        userNumberInputs.push(displayText);        
+    };
     if (userNumberInputs.length >= 2) {
         equals();
     } else {
         displayText = '';
         display.textContent = '';
-        lastOperationPressed = subtractButton;
     };
+    lastOperationPressed = "subtraction";
 });
 
 multiplyButton.addEventListener('click', () => {
-    userNumberInputs.push(displayText);
+    if (displayText !== '') {
+        userNumberInputs.push(displayText);        
+    };
     if (userNumberInputs.length >= 2) {
         equals();
     } else {
         displayText = '';
         display.textContent = '';
-        lastOperationPressed = multiplyButton;
     };
+    lastOperationPressed = "multiplication";
 });
 
 divideButton.addEventListener('click', () => {
-    userNumberInputs.push(displayText);
+    if (displayText !== '') {
+        userNumberInputs.push(displayText);        
+    };
     if (userNumberInputs.length >= 2) {
         equals();
     } else {
         displayText = '';
         display.textContent = '';
-        lastOperationPressed = divideButton;
     };
+    lastOperationPressed = "division";
 });
 
 equalButton.addEventListener('click', () => {
