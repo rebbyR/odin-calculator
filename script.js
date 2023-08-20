@@ -59,45 +59,36 @@ function operate(lastOperationPressed) {
 
 function add(userNumberInputs) {
     result = Number(userNumberInputs[0]);    
-    for (i = 1; i < userNumberInputs.length; i++) {
-        result += Number(userNumberInputs[i]);
-    }
-    return result;
-
+    return result += Number(userNumberInputs[1]);
 };
 
 function subtract(userNumberInputs) {
-    result = userNumberInputs[0];
-    for (i = 1; i < userNumberInputs.length; i++) {
-        result -= Number(userNumberInputs[i]);
-    }
-    return result;
-
+    result = Number(userNumberInputs[0]);
+    return result -= Number(userNumberInputs[1]);
 };
 
 function multiply(userNumberInputs) {
-    result = 1;
-    for (i = 0; i < userNumberInputs.length; i++) {
-        result *= Number(userNumberInputs[i]);
-    }
-    console.log(userNumberInputs);
-    return result;
-
+    result = Number(userNumberInputs[0]);
+    return result *= Number(userNumberInputs[1]);
 };
 
 function divide(userNumberInputs) {
     result = userNumberInputs[0];
-    for (i = 1; i < userNumberInputs.length; i++) {
-        if (userNumberInputs[i] == 0 && i !== 0) {
-            result = "err";
-            return;
-        } else {
-            result /= Number(userNumberInputs[i]);
-            console.log(result);            
-        };
-    }
-    return result;
+    if (userNumberInputs[1] == 0) {
+        return result = ":(";
+    } else {
+        return result /= Number(userNumberInputs[1]); 
+    };
+};
 
+function equals() {
+    userNumberInputs.push(displayText);
+    displayText = '';
+    display.textContent = '';
+    operate(lastOperationPressed);
+    display.textContent = result;
+    userNumberInputs = [result];
+    console.log(userNumberInputs);
 };
 
 //number button event listeners
@@ -163,43 +154,48 @@ clearButton.addEventListener('click', () => {
 
 addButton.addEventListener('click', () => {
     userNumberInputs.push(displayText);
-    displayText = '';
-    display.textContent = '';
-    lastOperationPressed = addButton;
+    if (userNumberInputs.length >= 2) {
+        equals();
+    } else {
+        displayText = '';
+        display.textContent = '';
+        lastOperationPressed = addButton;
+    };
 });
 
 subtractButton.addEventListener('click', () => {
     userNumberInputs.push(displayText);
-    displayText = '';
-    display.textContent = '';
-    lastOperationPressed = subtractButton;
-    console.log(lastOperationPressed);
+    if (userNumberInputs.length >= 2) {
+        equals();
+    } else {
+        displayText = '';
+        display.textContent = '';
+        lastOperationPressed = subtractButton;
+    };
 });
 
 multiplyButton.addEventListener('click', () => {
-    if (displayText !== '') {
-        userNumberInputs.push(displayText);        
-    }
-    displayText = '';
-    display.textContent = '';
-    lastOperationPressed = multiplyButton;
+    userNumberInputs.push(displayText);
+    if (userNumberInputs.length >= 2) {
+        equals();
+    } else {
+        displayText = '';
+        display.textContent = '';
+        lastOperationPressed = multiplyButton;
+    };
 });
 
 divideButton.addEventListener('click', () => {
-    if (displayText !== '') {
-        userNumberInputs.push(displayText);        
-    }
-    displayText = '';
-    display.textContent = '';
-    lastOperationPressed = divideButton;
+    userNumberInputs.push(displayText);
+    if (userNumberInputs.length >= 2) {
+        equals();
+    } else {
+        displayText = '';
+        display.textContent = '';
+        lastOperationPressed = divideButton;
+    };
 });
 
 equalButton.addEventListener('click', () => {
-    userNumberInputs.push(displayText);
-    displayText = '';
-    display.textContent = '';
-    operate(lastOperationPressed);
-    display.textContent = result;
-    userNumberInputs = [result];
-    console.log(userNumberInputs);
+    equals();
 })
