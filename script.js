@@ -43,7 +43,19 @@ const display = document.querySelector('.display');
 let displayText = display.textContent;
 
 
-//define operation functions
+//define functions
+
+function checksDisplayText() {
+    if (displayText !== '') {
+        userNumberInputs.push(displayText);        
+    };
+    if (userNumberInputs.length >= 2) {
+        equals();
+    } else {
+        displayText = '';
+        display.textContent = '';
+    };    
+}
 
 function operate(lastOperationPressed) {
     if (lastOperationPressed === "addition") {
@@ -197,54 +209,22 @@ clearButton.addEventListener('click', () => {
 });
 
 addButton.addEventListener('click', () => {
-    if (displayText !== '') {
-        userNumberInputs.push(displayText);        
-    };
-    if (userNumberInputs.length >= 2) {
-        equals();
-    } else {
-        displayText = '';
-        display.textContent = '';
-    };
+    checksDisplayText();
     lastOperationPressed = "addition";
 });
 
 subtractButton.addEventListener('click', () => {
-    if (displayText !== '') {
-        userNumberInputs.push(displayText);        
-    };
-    if (userNumberInputs.length >= 2) {
-        equals();
-    } else {
-        displayText = '';
-        display.textContent = '';
-    };
+    checksDisplayText();
     lastOperationPressed = "subtraction";
 });
 
 multiplyButton.addEventListener('click', () => {
-    if (displayText !== '') {
-        userNumberInputs.push(displayText);        
-    };
-    if (userNumberInputs.length >= 2) {
-        equals();
-    } else {
-        displayText = '';
-        display.textContent = '';
-    };
+    checksDisplayText();
     lastOperationPressed = "multiplication";
 });
 
 divideButton.addEventListener('click', () => {
-    if (displayText !== '') {
-        userNumberInputs.push(displayText);        
-    };
-    if (userNumberInputs.length >= 2) {
-        equals();
-    } else {
-        displayText = '';
-        display.textContent = '';
-    };
+    checksDisplayText();
     lastOperationPressed = "division";
 });
 
