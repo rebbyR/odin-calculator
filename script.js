@@ -45,47 +45,58 @@ let displayText = display.textContent;
 
 //define operation functions
 
-function operate(firstNumber, secondNumber, operator) {
-    if (operator === "+") {
-        add(firstNumber, secondNumber);
-    }
-    else if (operator === "-") {
-        subtract(firstNumber, secondNumber);
-    }
-    else if (operator === "*") {
-        multiply(firstNumber, secondNumber);
-    }
-    else if (operator === "/") {
-        divide(firstNumber, secondNumber);
-    }
+function operate(lastOperationPressed) {
+    if (lastOperationPressed === addButton) {
+        add(userNumberInputs);
+    } else if (lastOperationPressed === subtractButton) {
+        subtract(userNumberInputs);
+    } else if (lastOperationPressed === multiplyButton) {
+        multiply(userNumberInputs);
+    } else if (lastOperationPressed === divideButton) {
+        divide(userNumberInputs);
+    };
 };
 
 function add(userNumberInputs) {
     result = Number(userNumberInputs[0]);    
     for (i = 1; i < userNumberInputs.length; i++) {
         result += Number(userNumberInputs[i]);
-    } console.log(result);
+    }
     return result;
 
 };
 
 function subtract(userNumberInputs) {
     result = userNumberInputs[0];
-    console.log(result);
     for (i = 1; i < userNumberInputs.length; i++) {
         result -= Number(userNumberInputs[i]);
-    } console.log(result);
+    }
     return result;
 
 };
 
 function multiply(userNumberInputs) {
-    return result = firstNumber * secondNumber;
+    result = 1;
+    for (i = 0; i < userNumberInputs.length; i++) {
+        result *= Number(userNumberInputs[i]);
+    }
+    console.log(userNumberInputs);
+    return result;
 
 };
 
 function divide(userNumberInputs) {
-    return result = firstNumber / secondNumber;
+    result = userNumberInputs[0];
+    for (i = 1; i < userNumberInputs.length; i++) {
+        if (userNumberInputs[i] == 0 && i !== 0) {
+            displayText = "err: div by 0";
+            return;
+        } else {
+            result /= Number(userNumberInputs[i]);
+            console.log(result);            
+        };
+    }
+    return result;
 
 };
 
@@ -166,36 +177,29 @@ subtractButton.addEventListener('click', () => {
 });
 
 multiplyButton.addEventListener('click', () => {
-    userNumberInputs.push(displayText);
+    if (displayText !== '') {
+        userNumberInputs.push(displayText);        
+    }
     displayText = '';
     display.textContent = '';
     lastOperationPressed = multiplyButton;
 });
 
 divideButton.addEventListener('click', () => {
-    userNumberInputs.push(displayText);
+    if (displayText !== '') {
+        userNumberInputs.push(displayText);        
+    }
     displayText = '';
     display.textContent = '';
     lastOperationPressed = divideButton;
 });
 
-//other operation buttons here.........
-
-//set up to only work for adding / test case
 equalButton.addEventListener('click', () => {
     userNumberInputs.push(displayText);
     displayText = '';
     display.textContent = '';
-    if (lastOperationPressed === addButton) {
-        add(userNumberInputs);
-    } else if (lastOperationPressed === subtractButton) {
-        subtract(userNumberInputs);
-    } else if (lastOperationPressed === multiplyButton) {
-        multiply(userNumberInputs);
-    } else if (lastOperationPressed === divideButton) {
-        divide(userNumberInputs);
-    };
+    operate(lastOperationPressed);
     display.textContent = result;
     userNumberInputs = [result];
-
+    console.log(userNumberInputs);
 })
