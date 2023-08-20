@@ -14,6 +14,7 @@ let secondNumber = undefined;
 let operator = undefined;
 let result = 0;
 let userNumberInputs = [];
+let lastOperationPressed = undefined;
 
 //declare number buttons
 const zeroButton = document.getElementById('zero');
@@ -88,85 +89,94 @@ function divide(userNumberInputs) {
 
 };
 
-//define button-to-display functions
+//number button event listeners
 
 zeroButton.addEventListener('click', () => {
     displayText = displayText + 0;
     display.textContent = displayText;
-    console.log(displayText);
 });
 
 oneButton.addEventListener('click', () => {
     displayText = displayText + 1;
     display.textContent = displayText;
-    console.log(displayText);
 });
 
 twoButton.addEventListener('click', () => {
     displayText = displayText + 2;
     display.textContent = displayText;
-    console.log(displayText);
 });
 
 threeButton.addEventListener('click', () => {
     displayText = displayText + 3;
     display.textContent = displayText;
-    console.log(displayText);
 });
 
 fourButton.addEventListener('click', () => {
     displayText = displayText + 4;
     display.textContent = displayText;
-    console.log(displayText);
 });
 
 fiveButton.addEventListener('click', () => {
     displayText = displayText + 5;
     display.textContent = displayText;
-    console.log(displayText);
 });
 
 sixButton.addEventListener('click', () => {
     displayText = displayText + 6;
     display.textContent = displayText;
-    console.log(displayText);
 });
 
 sevenButton.addEventListener('click', () => {
     displayText = displayText + 7;
     display.textContent = displayText;
-    console.log(displayText);
 });
 
 eightButton.addEventListener('click', () => {
     displayText = displayText + 8;
     display.textContent = displayText;
-    console.log(displayText);
 });
 
 nineButton.addEventListener('click', () => {
     displayText = displayText + 9;
     display.textContent = displayText;
-    console.log(displayText);
 });
+
+//operation button event listeners
 
 clearButton.addEventListener('click', () => {
     userNumberInputs = [];
     displayText = '';
     display.textContent = displayText;
-    console.log(displayText);
+    lastOperationPressed = undefined;
 });
 
 addButton.addEventListener('click', () => {
     userNumberInputs.push(displayText);
     displayText = '';
     display.textContent = '';
+    lastOperationPressed = addButton;
 });
 
 subtractButton.addEventListener('click', () => {
     userNumberInputs.push(displayText);
     displayText = '';
     display.textContent = '';
+    lastOperationPressed = subtractButton;
+    console.log(lastOperationPressed);
+});
+
+multiplyButton.addEventListener('click', () => {
+    userNumberInputs.push(displayText);
+    displayText = '';
+    display.textContent = '';
+    lastOperationPressed = multiplyButton;
+});
+
+divideButton.addEventListener('click', () => {
+    userNumberInputs.push(displayText);
+    displayText = '';
+    display.textContent = '';
+    lastOperationPressed = divideButton;
 });
 
 //other operation buttons here.........
@@ -176,7 +186,16 @@ equalButton.addEventListener('click', () => {
     userNumberInputs.push(displayText);
     displayText = '';
     display.textContent = '';
-    add(userNumberInputs);  
+    if (lastOperationPressed === addButton) {
+        add(userNumberInputs);
+    } else if (lastOperationPressed === subtractButton) {
+        subtract(userNumberInputs);
+    } else if (lastOperationPressed === multiplyButton) {
+        multiply(userNumberInputs);
+    } else if (lastOperationPressed === divideButton) {
+        divide(userNumberInputs);
+    };
     display.textContent = result;
     userNumberInputs = [result];
+
 })
