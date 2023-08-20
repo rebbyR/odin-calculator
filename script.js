@@ -77,7 +77,8 @@ function divide(userNumberInputs) {
     if (userNumberInputs[1] == 0) {
         return result = ":(";
     } else {
-        return result /= Number(userNumberInputs[1]); 
+        result /= Number(userNumberInputs[1]);
+        result = result.toFixed(6); 
     };
 };
 
