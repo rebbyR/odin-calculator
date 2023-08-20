@@ -1,6 +1,4 @@
 * {
-    border: 1px solid black;
-    background-color: gray;
     font-family: monospace;
 }
 
@@ -11,12 +9,20 @@ body {
     margin-top: 10%;
 }
 
+.container {
+    padding: 20px;
+    background-color: #959595;
+    border-radius: 25px;
+}
+
 .display {
     display: flex;
     height: 100px;
     justify-content: flex-end;
     align-items: flex-end;
     font-size: 3rem;
+    border: 3px solid black;
+    background-color: white;
 }
 
 .left {
@@ -31,12 +37,19 @@ body {
 
 .buttons {
     display: flex;
+    background-color: #959595;
+    padding-top: 20px;
 }
 
+.row {
+    display: flex;
+}
 
 
 button {
     width: 75px;
     height: 75px;
+    border-radius: 10px;
+    border: 1px solid black;
 }
 

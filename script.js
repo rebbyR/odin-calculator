@@ -89,7 +89,7 @@ function divide(userNumberInputs) {
     result = userNumberInputs[0];
     for (i = 1; i < userNumberInputs.length; i++) {
         if (userNumberInputs[i] == 0 && i !== 0) {
-            displayText = "err: div by 0";
+            result = "err";
             return;
         } else {
             result /= Number(userNumberInputs[i]);
