@@ -78,7 +78,7 @@ function divide(userNumberInputs) {
         return result = ":(";
     } else {
         result /= Number(userNumberInputs[1]);
-        result = result.toFixed(6); 
+        result = Math.round(result * 10)/10; 
     };
 };
 
